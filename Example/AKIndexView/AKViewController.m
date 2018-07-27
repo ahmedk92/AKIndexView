@@ -7,8 +7,9 @@
 //
 
 #import "AKViewController.h"
+@import AKIndexView;
 
-@interface AKViewController ()
+@interface AKViewController () <AKIndexViewDataSource, AKIndexViewDelegate>
 
 @end
 
@@ -25,5 +26,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - AKIndexViewDataSource
+
+- (NSInteger)numberOfRowsInIndexView:(AKIndexView *)indexView {
+    return 30;
+}
+
+- (UIView *)indexView:(AKIndexView *)indexView viewForRow:(NSInteger)row {
+    UILabel* label = [[UILabel alloc] init];
+    label.text = @(row).stringValue;
+    label.font = [UIFont systemFontOfSize:10];
+    
+    return label;
+}
+
+#pragma mark - AKIndexViewDelegate
 
 @end

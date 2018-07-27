@@ -60,13 +60,13 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		678AB869AA7A0E7F875D8EEE /* Pods_AKIndexView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AKIndexView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C2AC7D844F149949525A1AA /* AKIndexView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = AKIndexView.podspec; path = ../AKIndexView.podspec; sourceTree = "<group>"; };
+		6C2AC7D844F149949525A1AA /* AKIndexView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AKIndexView.podspec; path = ../AKIndexView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7A0779373ED7096473C07F6A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		7A0779373ED7096473C07F6A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		80013EEEB45D9C740A23130F /* Pods-AKIndexView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKIndexView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AKIndexView_Example/Pods-AKIndexView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D29DA857F8D94A8D4DC14B40 /* Pods_AKIndexView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AKIndexView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2E915E3FCEEBADFD4AB54FC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		D2E915E3FCEEBADFD4AB54FC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
