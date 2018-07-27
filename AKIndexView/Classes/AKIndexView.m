@@ -10,6 +10,7 @@
 #define AKIVAxisOrElse(elseValue) (self.delegate != nil && [self.delegate respondsToSelector:@selector(axisForIndexView:)] ? [self.delegate axisForIndexView:self] : elseValue)
 #define AKIVDistributionOrElse(elseValue) (self.delegate != nil && [self.delegate respondsToSelector:@selector(distributionForIndexView:)] ? [self.delegate distributionForIndexView:self] : elseValue)
 #define AKIVAlignmentOrElse(elseValue) (self.delegate != nil && [self.delegate respondsToSelector:@selector(alignmentForIndexView:)] ? [self.delegate alignmentForIndexView:self] : elseValue)
+#define AKIVRecognizeOutOfBoundsPans (self.delegate != nil && [self.delegate respondsToSelector:@selector(recognizeOutOfBoundsPansInIndexView:)] ? [self.delegate recognizeOutOfBoundsPansInIndexView:self] : YES)
 
 
 @interface AKIndexView()
@@ -32,6 +33,30 @@
         [self.topAnchor constraintEqualToAnchor:self.stackView.topAnchor],
         [self.bottomAnchor constraintEqualToAnchor:self.stackView.bottomAnchor]
     ]];
+    
+    UIPanGestureRecognizer* panGR = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(gestureRecognized:)];
+    [self.stackView addGestureRecognizer:panGR];
+    UITapGestureRecognizer* tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureRecognized:)];
+    [self.stackView addGestureRecognizer:tapGR];
+                                     
+}
+
+- (void)gestureRecognized:(UIGestureRecognizer*)gestureRecognizer {
+    CGPoint location = [gestureRecognizer locationInView:self];
+    
+    if (AKIVRecognizeOutOfBoundsPans) {
+        location.x = CGRectGetMidX(self.stackView.bounds);
+    }
+    
+    NSInteger rows = [self.dataSource numberOfRowsInIndexView:self];
+    for (NSInteger i = 0; i < rows; i++) {
+        UIView* view = self.stackView.arrangedSubviews[i];
+        if (CGRectContainsPoint(view.frame, location)) {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(indexView:didSelectRow:)]) {
+                [self.delegate indexView:self didSelectRow:i];
+            }
+        }
+    }
 }
 
 - (void)reloadData {

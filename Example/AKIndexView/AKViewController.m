@@ -11,9 +11,23 @@
 
 @interface AKViewController () <AKIndexViewDataSource, AKIndexViewDelegate>
 
+@property(nonatomic) NSArray<NSString*>* data;
+
 @end
 
 @implementation AKViewController
+
+- (NSArray<NSString *> *)data {
+    if (_data == nil) {
+        NSMutableArray<NSString*>* mData = [[NSMutableArray alloc] init];
+        for (NSInteger i = 1; i <= 30; i++) {
+            [mData addObject:@(i).stringValue];
+        }
+        _data = [[NSArray alloc] initWithArray:mData];
+    }
+    
+    return _data;
+}
 
 - (void)viewDidLoad
 {
@@ -30,17 +44,21 @@
 #pragma mark - AKIndexViewDataSource
 
 - (NSInteger)numberOfRowsInIndexView:(AKIndexView *)indexView {
-    return 30;
+    return self.data.count;
 }
 
 - (UIView *)indexView:(AKIndexView *)indexView viewForRow:(NSInteger)row {
     UILabel* label = [[UILabel alloc] init];
-    label.text = @(row).stringValue;
+    label.text = self.data[row];
     label.font = [UIFont systemFontOfSize:10];
     
     return label;
 }
 
 #pragma mark - AKIndexViewDelegate
+
+- (void)indexView:(AKIndexView *)indexView didSelectRow:(NSInteger)row {
+    NSLog(@"Did select row: %@", self.data[row]);
+}
 
 @end

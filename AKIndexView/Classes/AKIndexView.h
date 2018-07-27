@@ -29,15 +29,20 @@
 
 @protocol AKIndexViewDelegate <NSObject>
 
-/// Axis for the underlying stackview.
+- (void)indexView:(AKIndexView*_Nonnull)indexView didSelectRow:(NSInteger)row;
+
+@optional
+
+/// Axis for the underlying stackview. Default is vertical.
 - (UILayoutConstraintAxis)axisForIndexView:(AKIndexView*_Nonnull)indexView;
 
-/// Distribution for the underlying stackview.
+/// Distribution for the underlying stackview. Default is Fill Equally.
 - (UIStackViewDistribution)distributionForIndexView:(AKIndexView*_Nonnull)indexView;
 
-/// Alignment for the underlying stackview.
+/// Alignment for the underlying stackview. Default is Center.
 - (UIStackViewAlignment) alignmentForIndexView:(AKIndexView*_Nonnull)indexView;
 
-- (void)indexView:(AKIndexView*_Nonnull)indexView didSelectRow:(NSInteger)row;
+- (BOOL)recognizeOutOfBoundsPansInIndexView:(AKIndexView*_Nonnull)indexView;
+
 
 @end
