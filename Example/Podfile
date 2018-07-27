@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'AKIndexView_Example' do
+  pod 'AKIndexView', :path => '../'
+
+  target 'AKIndexView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
