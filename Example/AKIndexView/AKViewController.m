@@ -11,7 +11,9 @@
 
 @interface AKViewController () <AKIndexViewDataSource, AKIndexViewDelegate>
 
+@property(nonatomic, weak) IBOutlet AKIndexView* indexView;
 @property(nonatomic) NSArray<NSString*>* data;
+@property(nonatomic) NSInteger selectedRow;
 
 @end
 
@@ -51,6 +53,15 @@
     UILabel* label = [[UILabel alloc] init];
     label.text = self.data[row];
     label.font = [UIFont systemFontOfSize:10];
+    label.textAlignment = NSTextAlignmentCenter;
+    
+    if (self.selectedRow == row) {
+        label.backgroundColor = [UIColor blackColor];
+        label.textColor = [UIColor whiteColor];
+    } else {
+        label.backgroundColor = [UIColor clearColor];
+        label.textColor = [UIColor blackColor];
+    }
     
     return label;
 }
@@ -58,7 +69,8 @@
 #pragma mark - AKIndexViewDelegate
 
 - (void)indexView:(AKIndexView *)indexView didSelectRow:(NSInteger)row {
-    NSLog(@"Did select row: %@", self.data[row]);
+    self.selectedRow = row;
+    [self.indexView reloadData];
 }
 
 @end

@@ -62,12 +62,12 @@
 - (void)reloadData {
     
     for (UIView* view in self.stackView.arrangedSubviews) {
-        [self.stackView removeArrangedSubview:view];
+        [view removeFromSuperview];
     }
     
     self.stackView.axis = AKIVAxisOrElse(UILayoutConstraintAxisVertical);
     self.stackView.distribution = AKIVDistributionOrElse(UIStackViewDistributionFillEqually);
-    self.stackView.alignment = AKIVAlignmentOrElse(UIStackViewAlignmentCenter);
+    self.stackView.alignment = AKIVAlignmentOrElse(UIStackViewAlignmentFill);
 
     
     NSInteger rows = [self.dataSource numberOfRowsInIndexView:self];

@@ -39,7 +39,7 @@
 /// Distribution for the underlying stackview. Default is Fill Equally.
 - (UIStackViewDistribution)distributionForIndexView:(AKIndexView*_Nonnull)indexView;
 
-/// Alignment for the underlying stackview. Default is Center.
+/// Alignment for the underlying stackview. Default is Fill.
 - (UIStackViewAlignment) alignmentForIndexView:(AKIndexView*_Nonnull)indexView;
 
 - (BOOL)recognizeOutOfBoundsPansInIndexView:(AKIndexView*_Nonnull)indexView;
