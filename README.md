@@ -13,6 +13,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+iOS 9+
+
 ## Installation
 
 AKIndexView is available through [CocoaPods](https://cocoapods.org). To install
