@@ -56,8 +56,8 @@
     label.textAlignment = NSTextAlignmentCenter;
     
     if (self.selectedRow == row) {
-        label.backgroundColor = [UIColor blackColor];
-        label.textColor = [UIColor whiteColor];
+        label.backgroundColor = [UIColor redColor];
+        label.textColor = [UIColor purpleColor];
     } else {
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor blackColor];
