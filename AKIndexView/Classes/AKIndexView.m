@@ -45,7 +45,11 @@
     CGPoint location = [gestureRecognizer locationInView:self];
     
     if (AKIVRecognizeOutOfBoundsPans) {
-        location.x = CGRectGetMidX(self.stackView.bounds);
+        if (self.stackView.axis == UILayoutConstraintAxisHorizontal) {
+            location.y = CGRectGetMidY(self.stackView.bounds);
+        } else {
+            location.x = CGRectGetMidX(self.stackView.bounds);
+        }
     }
     
     NSInteger rows = [self.dataSource numberOfRowsInIndexView:self];
